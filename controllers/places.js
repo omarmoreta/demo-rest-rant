@@ -21,10 +21,6 @@ router.get("/", (req, res) => {
 
 // POST /places - create places
 // GET /places/new - form to create places
-router.get("/new", (req, res) => {
-    res.render("places/new")
-})
-
 // GET /places/:id - specific place details
 // PUT /places/:id - update specific place
 // GET /places/:id/edit - form to edit places
