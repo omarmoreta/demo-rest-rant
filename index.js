@@ -3,12 +3,16 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT
 
+// middleware
+app.set("view engine", "jsx")
+app.engine("jsx", require("express-react-views").createEngine())
+
 // GET /places/* - renders views/functionality in controllers
 app.use("/places", require("./controllers/places"))
 
 // GET / - home page
 app.get('/', (req, res) => {
-    res.send('Hello world!')
+    res.render("home")
 })
 
 // GET /* - error page
