@@ -4,8 +4,10 @@ const app = express()
 const PORT = process.env.PORT
 
 // middleware
+app.set("views", __dirname + "/views")
 app.set("view engine", "jsx")
 app.engine("jsx", require("express-react-views").createEngine())
+app.use(express.static("public"))
 
 // GET /places/* - renders views/functionality in controllers
 app.use("/places", require("./controllers/places"))
