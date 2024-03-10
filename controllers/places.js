@@ -27,6 +27,20 @@ router.get("/new", (req, res) => {
     res.render("places/new")
 })
 // GET /places/:id - specific place details
+router.get('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        res.render('places/show', { place: places[id] })
+    }
+})
+
+
 // PUT /places/:id - update specific place
 // GET /places/:id/edit - form to edit places
 // DELETE /places/:id = delete place
