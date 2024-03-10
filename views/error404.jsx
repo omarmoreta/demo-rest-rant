@@ -18,5 +18,4 @@ function Error404() {
     )
 }
 
-
 module.exports = Error404
